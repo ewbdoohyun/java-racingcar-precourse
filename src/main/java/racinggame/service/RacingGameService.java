@@ -8,7 +8,7 @@ public class RacingGameService {
 
     public CarListVo run(CarListVo carListVo){
 
-        for(CarVo carVo : carListVo.getNameList()){
+        for(CarVo carVo : carListVo.getCarVoList()){
             runOneCar(carVo);
         }
         return carListVo;

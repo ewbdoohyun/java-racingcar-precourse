@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarListVo {
-    private List<CarVo> nameList;
+    private List<CarVo> carVoList;
 
 
     public CarListVo(String[] nameArray) {
@@ -12,10 +12,10 @@ public class CarListVo {
         for(String name : nameArray){
             carVoList.add(new CarVo(name));
         }
-        this.nameList = carVoList;
+        this.carVoList = carVoList;
     }
 
-    public List<CarVo> getNameList() {
-        return nameList;
+    public List<CarVo> getCarVoList() {
+        return carVoList;
     }
 }

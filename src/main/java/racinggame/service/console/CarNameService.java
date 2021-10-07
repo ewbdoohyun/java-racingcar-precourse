@@ -12,7 +12,7 @@ public class CarNameService {
     public CarListVo readCarNames() throws EmptyInputException, NameInputException {
         boolean isAvailable = true;
         CarListVo carListVo = readAndSplitLine();
-        for (CarVo name : carListVo.getNameList()) {
+        for (CarVo name : carListVo.getCarVoList()) {
             isAvailable = isAvailable && isNameAvailable(name).isTrue();
         }
         if(!isAvailable){
