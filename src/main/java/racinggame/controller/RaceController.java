@@ -4,7 +4,9 @@ import racinggame.exception.EmptyInputException;
 import racinggame.exception.NameInputException;
 import racinggame.exception.TryCountException;
 import racinggame.model.vo.CarListVo;
+import racinggame.model.vo.CarVo;
 import racinggame.model.vo.RaceCountVo;
+import racinggame.service.RacingGameService;
 import racinggame.service.console.CarNameService;
 import racinggame.service.console.RaceCountService;
 
@@ -15,17 +17,31 @@ public class RaceController {
 
     private final CarNameService carNameService;
     private final RaceCountService raceCountService;
+    private final RacingGameService racingGameService;
 
     public RaceController() {
         //
         this.carNameService = new CarNameService();
         this.raceCountService = new RaceCountService();
+        this.racingGameService = new RacingGameService();
     }
 
     public void run() {
         CarListVo carListVo = readCarListWithRetry();
         RaceCountVo raceCountVo = readRaceCountWithRetry();
+        System.out.println("\n실행 결과");
+        for(int i =0;i<raceCountVo.getRaceCount();i++){
+            carListVo = racingGameService.run(carListVo);
+            printCurrent(carListVo);
+            System.out.println();
+        }
 
+    }
+
+    private void printCurrent(CarListVo carListVo){
+        for(CarVo carVo : carListVo.getCarVoList()){
+            System.out.println(carVo.getCurrentMessage());
+        }
     }
 
     private CarListVo readCarListWithRetry() {

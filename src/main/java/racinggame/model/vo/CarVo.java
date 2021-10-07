@@ -19,4 +19,13 @@ public class CarVo {
     public int getCount(){
         return count;
     }
+
+    public String getCurrentMessage(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(carName).append(" : ");
+        for(int i = 0;i<count;i++){
+            builder.append("-");
+        }
+        return builder.toString();
+    }
 }
