@@ -35,7 +35,7 @@ public class CarNameService {
             throw new EmptyInputException();
         }
         String[] names = line.split(",");
-        if(names.length<2){
+        if(line.charAt(line.length()-1)==','||names.length<2){
             throw new NameInputException();
         }
         return CarVo.fromStringArray(names);
