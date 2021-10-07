@@ -5,7 +5,7 @@ public class TrueFalse {
     private static final TrueFalse trueObject = new TrueFalse(true);
     private static final TrueFalse falseObject = new TrueFalse(false);
 
-    public TrueFalse(boolean isTrue) {
+    private TrueFalse(boolean isTrue) {
         this.isTrue = isTrue;
     }
     public boolean isTrue() {

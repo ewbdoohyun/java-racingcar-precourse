@@ -1,7 +1,7 @@
 package racinggame.model.vo;
 
 public class RaceCountVo {
-    private int raceCount;
+    private final int raceCount;
 
     public RaceCountVo(int raceCount) {
         this.raceCount = raceCount;

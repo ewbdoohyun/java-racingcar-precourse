@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarVo {
-    private String carName;
+    private final String carName;
     private int count;
 
     public CarVo(String carName) {
