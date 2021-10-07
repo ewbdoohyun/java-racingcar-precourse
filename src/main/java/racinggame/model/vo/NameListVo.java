@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NameListVo {
-    private List<CarNameVo> nameList;
+    private List<CarVo> nameList;
 
 
     public NameListVo(String[] nameArray) {
-        List<CarNameVo> carNameVoList = new ArrayList<>();
+        List<CarVo> carVoList = new ArrayList<>();
         for(String name : nameArray){
-            carNameVoList.add(new CarNameVo(name));
+            carVoList.add(new CarVo(name));
         }
-        this.nameList = carNameVoList;
+        this.nameList = carVoList;
     }
 
-    public List<CarNameVo> getNameList() {
+    public List<CarVo> getNameList() {
         return nameList;
     }
 }

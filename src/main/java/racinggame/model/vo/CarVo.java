@@ -1,9 +1,9 @@
 package racinggame.model.vo;
 
-public class CarNameVo {
+public class CarVo {
     private String carName;
 
-    public CarNameVo(String carName) {
+    public CarVo(String carName) {
         this.carName = carName;
     }
 
