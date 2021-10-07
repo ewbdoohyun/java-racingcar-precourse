@@ -41,7 +41,7 @@ public class RaceController {
 
     private void printWinner(List<CarVo> winnerList){
         StringBuilder builder = new StringBuilder();
-        builder.append("최종 우상자는 ").append(winnerList.get(0).getCarName());
+        builder.append("최종 우승자는 ").append(winnerList.get(0).getCarName());
         for(int i = 1;i<winnerList.size();i++){
             builder.append(",").append(winnerList.get(i).getCarName());
         }
