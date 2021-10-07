@@ -4,15 +4,16 @@ import nextstep.utils.Console;
 import racinggame.exception.EmptyInputException;
 import racinggame.exception.NameInputException;
 import racinggame.model.vo.CarVo;
-import racinggame.model.vo.CarListVo;
 import racinggame.model.vo.TrueFalse;
+
+import java.util.List;
 
 public class CarNameService {
 
-    public CarListVo readCarNames() throws EmptyInputException, NameInputException {
+    public List<CarVo> readCarNames() throws EmptyInputException, NameInputException {
         boolean isAvailable = true;
-        CarListVo carListVo = readAndSplitLine();
-        for (CarVo name : carListVo.getCarVoList()) {
+        List<CarVo> carListVo = readAndSplitLine();
+        for (CarVo name : carListVo) {
             isAvailable = isAvailable && isNameAvailable(name).isTrue();
         }
         if(!isAvailable){
@@ -28,7 +29,7 @@ public class CarNameService {
         return TrueFalse.getTrue();
     }
 
-    private CarListVo readAndSplitLine() throws EmptyInputException, NameInputException {
+    private List<CarVo> readAndSplitLine() throws EmptyInputException, NameInputException {
         String line = Console.readLine();
         if (line.length() == 0) {
             throw new EmptyInputException();
@@ -37,6 +38,7 @@ public class CarNameService {
         if(names.length<2){
             throw new NameInputException();
         }
-        return new CarListVo(names);
+        return CarVo.fromStringArray(names);
     }
+
 }

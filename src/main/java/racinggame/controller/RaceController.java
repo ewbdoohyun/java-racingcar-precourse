@@ -3,12 +3,13 @@ package racinggame.controller;
 import racinggame.exception.EmptyInputException;
 import racinggame.exception.NameInputException;
 import racinggame.exception.TryCountException;
-import racinggame.model.vo.CarListVo;
 import racinggame.model.vo.CarVo;
 import racinggame.model.vo.RaceCountVo;
 import racinggame.service.RacingGameService;
 import racinggame.service.console.CarNameService;
 import racinggame.service.console.RaceCountService;
+
+import java.util.List;
 
 public class RaceController {
 
@@ -27,32 +28,32 @@ public class RaceController {
     }
 
     public void run() {
-        CarListVo carListVo = readCarListWithRetry();
+        List<CarVo> carVoList = readCarListWithRetry();
         RaceCountVo raceCountVo = readRaceCountWithRetry();
         System.out.println("\n실행 결과");
         for(int i =0;i<raceCountVo.getRaceCount();i++){
-            carListVo = racingGameService.run(carListVo);
-            printCurrent(carListVo);
+            carVoList = racingGameService.run(carVoList);
+            printCurrent(carVoList);
             System.out.println();
         }
 
     }
 
-    private void printCurrent(CarListVo carListVo){
-        for(CarVo carVo : carListVo.getCarVoList()){
+    private void printCurrent(List<CarVo> carVoList){
+        for(CarVo carVo : carVoList){
             System.out.println(carVo.getCurrentMessage());
         }
     }
 
-    private CarListVo readCarListWithRetry() {
-        CarListVo carListVo;
+    private List<CarVo> readCarListWithRetry() {
+        List<CarVo> carVoList;
         do{
-            carListVo = readCarList();
-        }while (carListVo == null);
-        return carListVo;
+            carVoList = readCarList();
+        }while (carVoList == null);
+        return carVoList;
     }
 
-    private CarListVo readCarList() {
+    private List<CarVo> readCarList() {
         try {
             System.out.println(CAR_NAME_MESSAGE);
             return carNameService.readCarNames();

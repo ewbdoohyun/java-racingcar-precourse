@@ -1,5 +1,8 @@
 package racinggame.model.vo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarVo {
     private String carName;
     private int count;
@@ -27,5 +30,13 @@ public class CarVo {
             builder.append("-");
         }
         return builder.toString();
+    }
+
+    public static List<CarVo> fromStringArray(String[] nameArray){
+        List<CarVo> carVoList = new ArrayList<>();
+        for(String name : nameArray){
+            carVoList.add(new CarVo(name));
+        }
+        return carVoList;
     }
 }

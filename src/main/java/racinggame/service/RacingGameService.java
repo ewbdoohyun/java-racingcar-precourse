@@ -1,17 +1,18 @@
 package racinggame.service;
 
 import nextstep.utils.Randoms;
-import racinggame.model.vo.CarListVo;
 import racinggame.model.vo.CarVo;
+
+import java.util.List;
 
 public class RacingGameService {
 
-    public CarListVo run(CarListVo carListVo){
+    public List<CarVo> run(List<CarVo> carVoList){
 
-        for(CarVo carVo : carListVo.getCarVoList()){
+        for(CarVo carVo : carVoList){
             runOneCar(carVo);
         }
-        return carListVo;
+        return carVoList;
     }
 
     private CarVo runOneCar(CarVo carVo){
